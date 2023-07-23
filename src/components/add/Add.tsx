@@ -1,5 +1,6 @@
 import "./add.scss";
 import { GridColDef } from "@mui/x-data-grid";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 type Props = {
   slug: string;
@@ -8,9 +9,37 @@ type Props = {
 };
 
 const Add = (props: Props) => {
+  const queryQlient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetch(`http://localhost:2020/api/${props.slug}s`, {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: 111,
+          img: "",
+          lastName: "hello",
+          firstName: "Test",
+          email: "test@gmail.com",
+          phone: "123 4567 5666",
+          createdAt: "01.02.2022",
+          verified: true,
+        }),
+      });
+    },
+    onSuccess: () => {
+      queryQlient.invalidateQueries([`all${props.slug}s`]);
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //add new item
+    mutation.mutate();
+    props.setOpen(false);
   };
   return (
     <div className="add">
