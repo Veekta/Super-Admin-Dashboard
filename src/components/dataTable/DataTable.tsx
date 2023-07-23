@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import "./dataTable.scss";
 
-import {
-  GridColDef,
-  GridValueGetterParams,
-  DataGrid,
-  GridToolbar,
-} from "@mui/x-data-grid";
+import { GridColDef, DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 
 type Props = {
