@@ -35,5 +35,9 @@ a {
 
 .contentContainer {
   padding: 5px 20px;
-  width: inherit;
+
+  @include sm {
+    padding: 5px 5px;
+    width: 20%;
+  }
 }

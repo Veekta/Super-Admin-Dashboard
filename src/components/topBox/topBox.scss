@@ -1,3 +1,5 @@
+@import "../../styles/responsive.scss";
+
 .topBox {
   h1 {
     margin-bottom: 20px;
@@ -9,9 +11,17 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 30px;
+
       .user {
         display: flex;
-        gap: 20px;
+        gap: 50px;
+
+        @include sm {
+          width: 100%;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
         img {
           height: 40px;
           width: 40px;
