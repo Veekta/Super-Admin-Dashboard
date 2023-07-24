@@ -1,13 +1,30 @@
+@import "../../styles/responsive.scss";
+
 .products {
   .info {
     display: flex;
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
+    @include sm {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     button {
       padding: 5px;
       cursor: pointer;
+    }
+  }
+  .tableHold {
+    @include lg {
+      width: 900px;
+    }
+    @include md {
+      width: 500px;
+    }
+    @include sm {
+      width: 230px;
     }
   }
 }

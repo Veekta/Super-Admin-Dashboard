@@ -1,5 +1,10 @@
+@import "../../styles/responsive.scss";
+
 .single {
   display: flex;
+  @include md {
+    flex-direction: column;
+  }
   .view {
     flex: 1;
     .info {
@@ -7,6 +12,11 @@
         display: flex;
         align-items: center;
         gap: 20px;
+        flex-wrap: wrap;
+
+        @include md {
+          gap: 10px;
+        }
 
         img {
           width: 100px;
@@ -42,6 +52,12 @@
       margin: 50px;
       width: 80%;
       height: 400px;
+
+      @include md {
+        width: 250px;
+        height: 250px;
+        margin: 50px 0px;
+      }
     }
   }
   .activities {
@@ -73,6 +89,10 @@
           min-width: 400px;
           padding: 15px;
           background-color: #f45b6810;
+
+          @include md {
+            min-width: 230px;
+          }
 
           p {
             margin-bottom: 5px;
